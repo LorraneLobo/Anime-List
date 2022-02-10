@@ -1,6 +1,5 @@
-package com.lorrane.animelist.adapter
+package com.lorrane.animelist.ui.topAnime
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

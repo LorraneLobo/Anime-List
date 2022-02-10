@@ -1,13 +1,15 @@
-package com.lorrane.animelist.activity
+package com.lorrane.animelist.ui.topAnime
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.lorrane.animelist.adapter.TopAnimeAdapter
 import com.lorrane.animelist.api.Services
-import com.lorrane.animelist.databinding.ActivityMainBinding
+import com.lorrane.animelist.databinding.FragmentTopAnimeBinding
 import com.lorrane.animelist.model.Anime
 import com.lorrane.animelist.model.Page
 import com.lorrane.animelist.util.PAGE_SIZE
@@ -15,23 +17,25 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class TopAnimeFragment : Fragment() {
 
     private var isLoading: Boolean = false
     private var hasNextPage: Boolean = false
     private var currentPage: Int = 1
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: FragmentTopAnimeBinding
     private val adapterTopAnimes: TopAnimeAdapter = TopAnimeAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentTopAnimeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        setSupportActionBar(binding.includeToolbar.mainToolbar)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         //Configura RecyclerView Top Animes
         binding.recyclerTopAnimes.apply {
             val gridLayoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
@@ -61,7 +65,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<Page<List<Anime>>>, t: Throwable) {
-                    Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
                     isLoading = false
                 }
             })

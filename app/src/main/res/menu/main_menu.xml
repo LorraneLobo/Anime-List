@@ -4,11 +4,6 @@
     <item
         android:id="@+id/search"
         android:title="Busca"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/func1"
-        android:title="Funcionalidade 1" />
-    <item
-        android:id="@+id/func2"
-        android:title="Funcionalidade 2" />
+        app:showAsAction="always"
+        android:icon="@drawable/ic_pesquisar_24"/>
 </menu>
