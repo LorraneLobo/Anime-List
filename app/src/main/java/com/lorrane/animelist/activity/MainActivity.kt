@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        //Configura RecyclerView
+        //Configura RecyclerView Top Animes
         binding.recyclerTopAnimes.apply {
             layoutManager = GridLayoutManager(context, 1, GridLayoutManager.HORIZONTAL, false)
             adapter = adapterAnimes

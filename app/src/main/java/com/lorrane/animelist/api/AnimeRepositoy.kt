@@ -10,4 +10,7 @@ interface AnimeRepositoy {
     @GET("top/anime")
     fun getTopAnimes(): Call<Page<List<Anime>>>
 
+    @GET("recommendations/anime")
+    fun getRecommendationAnime(): Call<Page<List<Anime>>>
+
 }
