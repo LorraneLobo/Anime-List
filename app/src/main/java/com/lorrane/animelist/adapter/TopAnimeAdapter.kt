@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.lorrane.animelist.R
 import com.lorrane.animelist.model.Anime
 
-class TopAnimeAdapter(var listaAnime: List<Anime> = emptyList()) : RecyclerView.Adapter<TopAnimeAdapter.MyViewHolder>() {
+class TopAnimeAdapter(var listaAnime: MutableList<Anime> = mutableListOf()) : RecyclerView.Adapter<TopAnimeAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
        val itemLista: View = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_top_anime, parent, false);
@@ -21,8 +21,6 @@ class TopAnimeAdapter(var listaAnime: List<Anime> = emptyList()) : RecyclerView.
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val anime:Anime = listaAnime.get(position)
         holder.textTitulo.text = anime.title
-        holder.textGenero.text = anime.genres.firstOrNull()?.name
-        holder.textNota.text = anime.score.toString()
 
         Glide.with(holder.itemView.context).load(anime.images.jpg.imageUrl).into(holder.imageCapaAnime)
 
@@ -30,8 +28,8 @@ class TopAnimeAdapter(var listaAnime: List<Anime> = emptyList()) : RecyclerView.
 
     override fun getItemCount() = listaAnime.size
 
-    fun setData(dataList: List<Anime>) {
-        this.listaAnime = dataList
+    fun appendData(dataList: List<Anime>) {
+        this.listaAnime.addAll(dataList)
         notifyDataSetChanged()
     }
 
@@ -39,8 +37,6 @@ class TopAnimeAdapter(var listaAnime: List<Anime> = emptyList()) : RecyclerView.
 
      val imageCapaAnime: ImageView = itemView.findViewById(R.id.imageCapaAnime)
      val textTitulo: TextView = itemView.findViewById(R.id.textTitulo)
-     val textNota: TextView = itemView.findViewById(R.id.textNota)
-     val textGenero: TextView = itemView.findViewById(R.id.textGenero)
 
     }
 }

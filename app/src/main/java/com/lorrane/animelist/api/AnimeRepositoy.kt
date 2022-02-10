@@ -4,13 +4,11 @@ import com.lorrane.animelist.model.Anime
 import com.lorrane.animelist.model.Page
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface AnimeRepositoy {
 
     @GET("top/anime")
-    fun getTopAnimes(): Call<Page<List<Anime>>>
-
-    @GET("recommendations/anime")
-    fun getRecommendationAnime(): Call<Page<List<Anime>>>
+    fun getTopAnimes(@Query("page") page: Int): Call<Page<List<Anime>>>
 
 }
