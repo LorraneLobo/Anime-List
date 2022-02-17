@@ -10,4 +10,8 @@
         android:name="com.lorrane.animelist.ui.topAnime.TopAnimeFragment"
         android:label="fragment_top_anime"
         tools:layout="@layout/fragment_top_anime" />
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="com.lorrane.animelist.ui.favoritos.FavoritosFragment"
+        android:label="FavoritosFragment" />
 </navigation>
