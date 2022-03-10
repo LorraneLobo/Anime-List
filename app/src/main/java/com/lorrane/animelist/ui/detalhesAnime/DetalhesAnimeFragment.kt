@@ -20,7 +20,7 @@ import com.lorrane.animelist.ui.topAnime.TopAnimeAdapter
 import retrofit2.Call
 import retrofit2.Response
 
-class DetalhesAnimeFragment : Fragment(){
+class DetalhesAnimeFragment : Fragment() {
 
     private lateinit var binding: FragmentDetalhesAnimeBinding
     private val args: DetalhesAnimeFragmentArgs by navArgs()
@@ -44,7 +44,7 @@ class DetalhesAnimeFragment : Fragment(){
 //            addOnScrollListener(criarScrollListener(gridLayoutManager))
 //        }
 
-        //Recupera Top Animes
+        //Recupera Detalhes do Anime
         getDetalhesAnime()
     }
 
@@ -64,17 +64,19 @@ class DetalhesAnimeFragment : Fragment(){
             })
     }
 
-    fun carregarAnime(anime: Anime){
-//        binding.textScore.text = anime.score.toString()
-//        binding.textRank.text = anime.rank
-//        binding.textTituloDetalheAnime.text = anime.title
-//        binding.textAno.text = anime.year.toString()
-//        binding.textStatus.text = anime.status
-//        binding.textEpisodios.text = anime.episodes.toString()
-//        binding.textDuracao.text = anime.duration
-//        binding.textGeneros.text = anime.genres.toString()
-//        binding.textSinopse.text = anime.synopsis
-//
+    fun carregarAnime(anime: Anime) {
+        anime.run {
+            binding.textScore.text = score.toString()
+            binding.textRank.text = "# $rank"
+            binding.textPopularity.text = "# $popularity"
+            binding.textTituloDetalheAnime.text = title
+            binding.textAno.text = year.toString()
+            binding.textStatus.text = status.substringBefore(" ")
+            binding.textEpisodios.text = episodes.toString()
+            binding.textDuracao.text = duration
+            binding.textGeneros.text = genres.take(4).joinToString(separator = " - ") { it.name }
+            binding.textSinopse.text = synopsis
+        }
 
     }
 

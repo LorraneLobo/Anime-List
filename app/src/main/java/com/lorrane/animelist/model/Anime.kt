@@ -11,6 +11,7 @@ data class Anime(
     val year: Int,
     val trailer: Trailer,
     val rank: String,
+    val popularity: Int,
     val duration: String,
     val status:String,
     val genres: List<Genero>,
