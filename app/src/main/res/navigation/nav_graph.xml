@@ -9,9 +9,21 @@
         android:id="@+id/topAnimeFragment"
         android:name="com.lorrane.animelist.ui.topAnime.TopAnimeFragment"
         android:label="fragment_top_anime"
-        tools:layout="@layout/fragment_top_anime" />
+        tools:layout="@layout/fragment_top_anime" >
+        <action
+            android:id="@+id/action_topAnimeFragment_to_detalhesAnimeFragment"
+            app:destination="@id/detalhesAnimeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoritosFragment"
         android:name="com.lorrane.animelist.ui.favoritos.FavoritosFragment"
         android:label="FavoritosFragment" />
+    <fragment
+        android:id="@+id/detalhesAnimeFragment"
+        android:name="com.lorrane.animelist.ui.detalhesAnime.DetalhesAnimeFragment"
+        android:label="DetalhesAnimeFragment" >
+        <argument
+            android:name="animeId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

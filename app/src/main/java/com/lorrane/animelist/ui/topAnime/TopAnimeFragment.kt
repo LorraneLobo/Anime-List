@@ -6,25 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.lorrane.animelist.R
 import com.lorrane.animelist.api.Services
 import com.lorrane.animelist.databinding.FragmentTopAnimeBinding
 import com.lorrane.animelist.model.Anime
 import com.lorrane.animelist.model.Page
+import com.lorrane.animelist.ui.detalhesAnime.DetalhesAnimeFragment
 import com.lorrane.animelist.util.PAGE_SIZE
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TopAnimeFragment : Fragment() {
+class TopAnimeFragment : Fragment(), TopAnimeAdapter.OnClickListener {
 
     private var isLoading: Boolean = false
     private var hasNextPage: Boolean = false
     private var currentPage: Int = 1
 
     private lateinit var binding: FragmentTopAnimeBinding
-    private val adapterTopAnimes: TopAnimeAdapter = TopAnimeAdapter()
+    private val adapterTopAnimes: TopAnimeAdapter = TopAnimeAdapter(listener = this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,4 +92,8 @@ class TopAnimeFragment : Fragment() {
                 }
             }
         }
+
+    override fun onClickAnime(anime: Anime) {
+        findNavController().navigate(TopAnimeFragmentDirections.actionTopAnimeFragmentToDetalhesAnimeFragment(anime.id))
+    }
 }
