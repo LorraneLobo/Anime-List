@@ -50,14 +50,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerImagemAnime"
+            app:layout_constraintTop_toBottomOf="@+id/imageDetalheAnime"
             tools:text="Anime Title" />
 
         <TextView
@@ -142,15 +142,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/ic_media_play" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerImagemAnime"
-            android:layout_width="200dp"
-            android:layout_height="250dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textEpisodios"
             android:layout_width="wrap_content"
@@ -209,5 +200,15 @@
             app:layout_constraintEnd_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:text="#20" />
+
+        <ImageView
+            android:id="@+id/imageDetalheAnime"
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/no_image" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

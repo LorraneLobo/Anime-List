@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.lorrane.animelist.api.Services
 import com.lorrane.animelist.databinding.FragmentDetalhesAnimeBinding
@@ -24,7 +25,6 @@ class DetalhesAnimeFragment : Fragment() {
 
     private lateinit var binding: FragmentDetalhesAnimeBinding
     private val args: DetalhesAnimeFragmentArgs by navArgs()
-//    private val adapterDetalhesAnime: TopAnimeAdapter = TopAnimeAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,13 +36,6 @@ class DetalhesAnimeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //Configura RecyclerView Detalhe Animes
-//        binding.recyclerDetalhesAnimes.apply {
-//            val gridLayoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
-//            layoutManager = gridLayoutManager
-//            adapter = adapterTopAnimes
-//            addOnScrollListener(criarScrollListener(gridLayoutManager))
-//        }
 
         //Recupera Detalhes do Anime
         getDetalhesAnime()
@@ -76,6 +69,9 @@ class DetalhesAnimeFragment : Fragment() {
             binding.textDuracao.text = duration
             binding.textGeneros.text = genres.take(4).joinToString(separator = " - ") { it.name }
             binding.textSinopse.text = synopsis
+
+            Glide.with(requireContext()).load(anime.images.jpg.largeImageUrl)
+                .into(binding.imageDetalheAnime)
         }
 
     }
