@@ -45,7 +45,8 @@
                 android:id="@+id/textScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@android:drawable/btn_star"
+                android:drawableLeft="@drawable/ic_estrela_avaliacao_24"
+                android:drawableTint="#808080"
                 android:gravity="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -155,7 +156,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/imageTrailer"
                 app:layout_constraintStart_toStartOf="@+id/imageTrailer"
                 app:layout_constraintTop_toTopOf="@+id/imageTrailer"
-                app:srcCompat="@android:drawable/ic_media_play" />
+                app:srcCompat="@drawable/ic_play_24"
+                android:tint="#808080"/>
 
             <TextView
                 android:id="@+id/textEpisodios"
@@ -221,7 +223,7 @@
         tools:visibility="gone" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fabFavoritos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
