@@ -73,6 +73,7 @@ class DetalhesAnimeFragment : Fragment() {
                         binding.apply {
                             progressBar.hide()
                             scrollView.visibility = View.VISIBLE
+                            fabFavoritos.visibility = View.VISIBLE
                         }
                     }
                 }

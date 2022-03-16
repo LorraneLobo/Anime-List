@@ -236,5 +236,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="32dp"
         app:srcCompat="@drawable/ic_favorito_24"
-        app:tint="#FFFFFF" />
+        app:tint="#FFFFFF"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 </FrameLayout>
