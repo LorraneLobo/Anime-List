@@ -1,5 +1,7 @@
 package com.lorrane.animelist.ui.favoritos
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,5 +42,10 @@ class FavoritosFragment : Fragment(), FavoritosAdapter.OnClickListener {
 
     override fun onClickAnime(anime: Anime) {
         findNavController().navigate(FavoritosFragmentDirections.actionFavoritosFragmentToDetalhesAnimeFragment(anime.id))
+    }
+
+    override fun onClickRemoverFavorito(anime: Anime) {
+        PreferenceManagerUtil.removeFavorite(anime, requireContext())
+
     }
 }

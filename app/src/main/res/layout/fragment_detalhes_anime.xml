@@ -150,14 +150,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/textSinopse" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imagePlay"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
+                android:tint="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/imageTrailer"
                 app:layout_constraintEnd_toEndOf="@+id/imageTrailer"
                 app:layout_constraintStart_toStartOf="@+id/imageTrailer"
                 app:layout_constraintTop_toTopOf="@+id/imageTrailer"
-                app:srcCompat="@drawable/ic_play_24"
-                android:tint="#FFFFFF" />
+                app:srcCompat="@drawable/ic_play_24" />
 
             <TextView
                 android:id="@+id/textEpisodios"

@@ -99,11 +99,20 @@ class DetalhesAnimeFragment : Fragment() {
                 textDuracao.text = duration
                 textGeneros.text = genres.take(4).joinToString(separator = " - ") { it.name }
                 textSinopse.text = synopsis
-                imageTrailer.setOnClickListener {
-                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(trailer.url))
-                    startActivity(browserIntent)
+
+                if (!trailer.imagem.largeImageUrl.isNullOrEmpty() || !trailer.url.isNullOrEmpty()) {
+                    Glide.with(requireContext()).load(trailer.imagem.largeImageUrl)
+                        .into(imageTrailer)
+
+                    imageTrailer.setOnClickListener {
+                        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(trailer.url))
+                        startActivity(browserIntent)
+                    }
+                } else {
+                    imageTrailer.visibility = View.GONE
+                    imagePlay.visibility = View.GONE
                 }
-                Glide.with(requireContext()).load(trailer.imagem.largeImageUrl).into(imageTrailer)
+
                 Glide.with(requireContext()).load(anime.images.jpg.largeImageUrl)
                     .into(imageDetalheAnime)
             }

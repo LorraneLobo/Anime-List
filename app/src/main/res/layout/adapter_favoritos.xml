@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/layout_favoritos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -64,7 +65,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            app:srcCompat="@drawable/ic_favorito_24" />
+            app:srcCompat="@drawable/ic_favorito_24"
+            app:tint="#FFFF0000"/>
 
 
     </LinearLayout>

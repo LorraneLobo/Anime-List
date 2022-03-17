@@ -28,6 +28,11 @@ class FavoritosAdapter(
         holder.itemView.setOnClickListener { listener.onClickAnime(anime) }
         holder.textTitulo.text = anime.title
         holder.textEpisodios.text = anime.episodes.toString()
+        holder.buttonFavoritar.setOnClickListener {
+            listaFavoritos.remove(anime)
+            listener.onClickRemoverFavorito(anime)
+            notifyDataSetChanged()
+        }
 
         Glide.with(holder.itemView.context).load(anime.images.jpg.imageUrl).into(holder.imageAnime)
     }
@@ -51,5 +56,8 @@ class FavoritosAdapter(
 
     interface OnClickListener {
         fun onClickAnime(anime: Anime)
+        fun onClickRemoverFavorito(anime: Anime)
     }
+
+
 }
