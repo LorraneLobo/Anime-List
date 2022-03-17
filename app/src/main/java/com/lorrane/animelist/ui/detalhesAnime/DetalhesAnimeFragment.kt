@@ -97,11 +97,11 @@ class DetalhesAnimeFragment : Fragment() {
                 textStatus.text = status.substringBefore(" ")
                 textEpisodios.text = episodes.toString()
                 textDuracao.text = duration
-                textGeneros.text = genres.take(4).joinToString(separator = " - ") { it.name }
+                textGeneros.text = genres.take(4).joinToString(separator = "  •  ") { it.name }
                 textSinopse.text = synopsis
 
-                if (!trailer.imagem.largeImageUrl.isNullOrEmpty() || !trailer.url.isNullOrEmpty()) {
-                    Glide.with(requireContext()).load(trailer.imagem.largeImageUrl)
+                if (!trailer.imagem.mediumImageUrl.isNullOrEmpty() || !trailer.url.isNullOrEmpty()) {
+                    Glide.with(requireContext()).load(trailer.imagem.mediumImageUrl)
                         .into(imageTrailer)
 
                     imageTrailer.setOnClickListener {
