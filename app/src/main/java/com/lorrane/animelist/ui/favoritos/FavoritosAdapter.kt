@@ -12,15 +12,20 @@ import com.bumptech.glide.Glide
 import com.lorrane.animelist.R
 import com.lorrane.animelist.model.Anime
 
-class FavoritosAdapter(var listaFavoritos: MutableList<Anime> = mutableListOf()) : RecyclerView.Adapter<FavoritosAdapter.MyViewHolder>() {
+class FavoritosAdapter(
+    var listaFavoritos: MutableList<Anime> = mutableListOf(),
+    val listener: OnClickListener
+) : RecyclerView.Adapter<FavoritosAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemLista: View = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_favoritos, parent, false)
+        val itemLista: View = LayoutInflater.from(parent.getContext())
+            .inflate(R.layout.adapter_favoritos, parent, false)
         return MyViewHolder(itemLista)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val anime:Anime = listaFavoritos.get(position)
+        val anime: Anime = listaFavoritos.get(position)
+        holder.itemView.setOnClickListener { listener.onClickAnime(anime) }
         holder.textTitulo.text = anime.title
         holder.textEpisodios.text = anime.episodes.toString()
 
@@ -31,12 +36,12 @@ class FavoritosAdapter(var listaFavoritos: MutableList<Anime> = mutableListOf())
         return listaFavoritos.size
     }
 
-    fun appendData(dataList: List<Anime>) {
-        this.listaFavoritos.addAll(dataList)
+    fun setData(dataList: List<Anime>) {
+        this.listaFavoritos = dataList.toMutableList()
         notifyDataSetChanged()
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val imageAnime: ImageView = itemView.findViewById(R.id.imageAnime)
         val textTitulo: TextView = itemView.findViewById(R.id.textTituloAnime)
@@ -44,5 +49,7 @@ class FavoritosAdapter(var listaFavoritos: MutableList<Anime> = mutableListOf())
         val buttonFavoritar: ImageButton = itemView.findViewById(R.id.btnFavoritar)
     }
 
-
+    interface OnClickListener {
+        fun onClickAnime(anime: Anime)
+    }
 }

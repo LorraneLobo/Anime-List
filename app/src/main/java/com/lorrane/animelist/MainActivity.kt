@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.contentMain.toolbar)
+        supportActionBar?.title = ""
 
         mAppBarConfiguration = AppBarConfiguration.Builder(R.id.topAnimeFragment)
             .setOpenableLayout(binding.drawerLayout)
