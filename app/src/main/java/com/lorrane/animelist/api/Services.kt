@@ -13,6 +13,6 @@ object Services {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val animeService = retrofit.create(AnimeRepositoy::class.java)
+    val animeService = retrofit.create(AnimeService::class.java)
 
 }

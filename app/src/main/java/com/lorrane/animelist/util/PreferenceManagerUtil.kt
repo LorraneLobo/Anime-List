@@ -5,23 +5,20 @@ import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lorrane.animelist.model.Anime
+import javax.inject.Inject
 
-object PreferenceManagerUtil {
-    private const val FAVORITOS_KEY = "FAVORITOS"
+class PreferenceManagerUtil @Inject constructor(val sharedPref: SharedPreferences) {
 
-    fun addFavorite(anime: Anime, context: Context) {
-        val sharedPref = context.getSharedPreferences(ARQUIVO_PREFERENCIA, Context.MODE_PRIVATE)
-
-        val animeList = getFavoritos(context).toMutableList()
+    fun addFavorite(anime: Anime) {
+        val animeList = getFavoritos().toMutableList()
         if (animeList.none { param -> anime.id == param.id }) {
             animeList.add(anime)
             saveFavoritos(sharedPref, animeList)
         }
     }
 
-    fun removeFavorite(anime: Anime, context: Context) {
-        val sharedPref = context.getSharedPreferences(ARQUIVO_PREFERENCIA, Context.MODE_PRIVATE)
-        val animeList = getFavoritos(context).toMutableList()
+    fun removeFavorite(anime: Anime) {
+        val animeList = getFavoritos().toMutableList()
         val index = animeList.indexOfFirst { param -> anime.id == param.id }
         if (index != -1) {
             animeList.removeAt(index)
@@ -29,12 +26,11 @@ object PreferenceManagerUtil {
         }
     }
 
-    fun isFavorite(animeId: Int, context: Context): Boolean {
-        return getFavoritos(context).any { param -> animeId == param.id }
+    fun isFavorite(animeId: Int): Boolean {
+        return getFavoritos().any { param -> animeId == param.id }
     }
 
-    fun getFavoritos(context: Context): List<Anime> {
-        val sharedPref = context.getSharedPreferences(ARQUIVO_PREFERENCIA, Context.MODE_PRIVATE)
+    fun getFavoritos(): List<Anime> {
         val prefAnime = sharedPref.getString(FAVORITOS_KEY, null) ?: return emptyList()
         return Gson().fromJson(prefAnime, object : TypeToken<List<Anime>>() {}.type)
     }
@@ -44,5 +40,9 @@ object PreferenceManagerUtil {
             putString(FAVORITOS_KEY, Gson().toJson(animeList))
             commit()
         }
+    }
+
+    companion object {
+        private const val FAVORITOS_KEY = "FAVORITOS"
     }
 }

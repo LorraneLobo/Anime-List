@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface AnimeRepositoy {
+interface AnimeService {
 
     @GET("top/anime")
     fun getTopAnimes(@Query("page") page: Int): Call<Page<List<Anime>>>

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/topAnimeFragment"
         android:name="com.lorrane.animelist.ui.topAnime.TopAnimeFragment"
-        android:label="    ">
+        android:label="Top Animes">
         <action
             android:id="@+id/action_topAnimeFragment_to_detalhesAnimeFragment"
             app:destination="@id/detalhesAnimeFragment" />

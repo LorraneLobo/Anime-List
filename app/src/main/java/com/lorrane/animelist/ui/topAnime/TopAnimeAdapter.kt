@@ -11,7 +11,7 @@ import com.lorrane.animelist.R
 import com.lorrane.animelist.model.Anime
 
 class TopAnimeAdapter(
-    var listaAnime: MutableList<Anime> = mutableListOf(),
+    var listaAnime: List<Anime> = listOf(),
     val listener: OnClickListener
 ) : RecyclerView.Adapter<TopAnimeAdapter.MyViewHolder>() {
 
@@ -33,8 +33,8 @@ class TopAnimeAdapter(
 
     override fun getItemCount() = listaAnime.size
 
-    fun appendData(dataList: List<Anime>) {
-        this.listaAnime.addAll(dataList)
+    fun setData(dataList: List<Anime>) {
+        this.listaAnime = dataList
         notifyDataSetChanged()
     }
 

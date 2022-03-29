@@ -21,17 +21,22 @@ import com.lorrane.animelist.model.Anime
 import com.lorrane.animelist.model.Page
 import com.lorrane.animelist.util.ARQUIVO_PREFERENCIA
 import com.lorrane.animelist.util.PreferenceManagerUtil
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class DetalhesAnimeFragment : Fragment() {
 
     private lateinit var binding: FragmentDetalhesAnimeBinding
     private val args: DetalhesAnimeFragmentArgs by navArgs()
     private var isFavorite = false
     private lateinit var anime: Anime
+
+    @Inject
+    lateinit var preferenceManagerUtil: PreferenceManagerUtil
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,17 +52,17 @@ class DetalhesAnimeFragment : Fragment() {
         //Recupera Detalhes do Anime
         getDetalhesAnime()
 
-        isFavorite = PreferenceManagerUtil.isFavorite(args.animeId, requireContext())
+        isFavorite = preferenceManagerUtil.isFavorite(args.animeId)
 
         binding.fabFavoritos.imageTintList =
             ColorStateList.valueOf(if (isFavorite) Color.RED else Color.WHITE)
         //Salvar ou excluir favorito
         binding.fabFavoritos.setOnClickListener {
             if (!isFavorite) {
-                PreferenceManagerUtil.addFavorite(anime, requireContext())
+                preferenceManagerUtil.addFavorite(anime)
                 binding.fabFavoritos.imageTintList = ColorStateList.valueOf(Color.RED)
             } else {
-                PreferenceManagerUtil.removeFavorite(anime, requireContext())
+                preferenceManagerUtil.removeFavorite(anime)
                 binding.fabFavoritos.imageTintList = ColorStateList.valueOf(Color.WHITE)
             }
             isFavorite = !isFavorite

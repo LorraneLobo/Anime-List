@@ -12,12 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.lorrane.animelist.databinding.FragmentFavoritosBinding
 import com.lorrane.animelist.model.Anime
 import com.lorrane.animelist.util.PreferenceManagerUtil
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Response
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class FavoritosFragment : Fragment(), FavoritosAdapter.OnClickListener {
 
     private lateinit var binding: FragmentFavoritosBinding
 
+    @Inject
+    lateinit var preferenceManagerUtil: PreferenceManagerUtil
     private val adapterFavoritos: FavoritosAdapter = FavoritosAdapter(listener = this)
 
     override fun onCreateView(
@@ -37,7 +42,7 @@ class FavoritosFragment : Fragment(), FavoritosAdapter.OnClickListener {
         }
 
         //Recupera Animes Favoritos
-        adapterFavoritos.setData(PreferenceManagerUtil.getFavoritos(requireContext()))
+        adapterFavoritos.setData(preferenceManagerUtil.getFavoritos())
     }
 
     override fun onClickAnime(anime: Anime) {
@@ -45,7 +50,6 @@ class FavoritosFragment : Fragment(), FavoritosAdapter.OnClickListener {
     }
 
     override fun onClickRemoverFavorito(anime: Anime) {
-        PreferenceManagerUtil.removeFavorite(anime, requireContext())
-
+        preferenceManagerUtil.removeFavorite(anime)
     }
 }
