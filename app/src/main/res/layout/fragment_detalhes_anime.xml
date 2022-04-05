@@ -154,7 +154,7 @@
                     android:id="@+id/textRank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/anime_rank_popularity(vm.anime.rank)}"
+                    android:text="@{@string/rank(vm.anime.rank)}"
                     android:textColor="@color/colorSecondaryVariant"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -229,13 +229,13 @@
                     android:id="@+id/textPopularity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/anime_rank_popularity(vm.anime.popularity)}"
+                    android:text="@{@string/rank(vm.anime.popularity)}"
                     android:textColor="@color/colorSecondaryVariant"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/textView3"
                     app:layout_constraintTop_toBottomOf="@+id/textView3"
-                    tools:text="#20" />
+                    tools:text="# 20" />
 
                 <ImageView
                     android:id="@+id/imageDetalheAnime"

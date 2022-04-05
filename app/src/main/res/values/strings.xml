@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Anime List</string>
 
-    <string name="anime_rank_popularity"># %s</string>
+    <string name="rank"># %s</string>
 </resources>
