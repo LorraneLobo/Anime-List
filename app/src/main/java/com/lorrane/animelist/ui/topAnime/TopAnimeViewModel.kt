@@ -13,7 +13,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class TopAnimeViewModel @Inject constructor(private val animeRepository: AnimeRepository, val anime: Anime) : ViewModel() {
+class TopAnimeViewModel @Inject constructor(private val animeRepository: AnimeRepository) : ViewModel() {
     var hasNextPage: Boolean = false
         private set
     var currentPage: Int = 1
