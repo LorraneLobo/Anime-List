@@ -25,10 +25,12 @@ class TopAnimeViewModel @Inject constructor(private val animeRepository: AnimeRe
     private val _error: MutableLiveData<String> = MutableLiveData<String>()
     val error: LiveData<String> = _error
 
-    private val _animeList: MutableLiveData<List<Anime>> = MutableLiveData<List<Anime>>().also {
+    private val _animeList: MutableLiveData<List<Anime>> = MutableLiveData<List<Anime>>()
+    val animeList: LiveData<List<Anime>> = _animeList
+
+    init {
         getTopAnime()
     }
-    val animeList: LiveData<List<Anime>> = _animeList
 
     fun getTopAnime() {
         _loading.postValue(true)
