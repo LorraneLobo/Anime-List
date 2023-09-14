@@ -1,4 +1,4 @@
-package com.lorrane.animelist.ui.topAnime
+package com.lorrane.animelist.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lorrane.animelist.databinding.FragmentTopAnimeBinding
-import com.lorrane.animelist.model.Anime
+import com.lorrane.animelist.domain.Anime
+import com.lorrane.animelist.presentation.adapters.TopAnimeAdapter
+import com.lorrane.animelist.presentation.viewmodel.TopAnimeViewModel
 import com.lorrane.animelist.util.PAGE_SIZE
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -78,9 +80,9 @@ class TopAnimeFragment : Fragment(), TopAnimeAdapter.OnClickListener {
 
     override fun onClickAnime(anime: Anime) {
         findNavController().navigate(
-            TopAnimeFragmentDirections.actionTopAnimeFragmentToDetalhesAnimeFragment(
-                anime.id
-            )
+                TopAnimeFragmentDirections.actionTopAnimeFragmentToDetalhesAnimeFragment(
+                        anime.id
+                )
         )
     }
 }

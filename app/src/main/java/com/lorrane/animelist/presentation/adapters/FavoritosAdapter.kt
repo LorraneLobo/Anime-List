@@ -1,20 +1,19 @@
-package com.lorrane.animelist.ui.favoritos
+package com.lorrane.animelist.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lorrane.animelist.R
-import com.lorrane.animelist.model.Anime
+import com.lorrane.animelist.domain.Anime
 
 class FavoritosAdapter(
-    var listaFavoritos: MutableList<Anime> = mutableListOf(),
-    val listener: OnClickListener
+        var listaFavoritos: MutableList<Anime> = mutableListOf(),
+        val listener: OnClickListener
 ) : RecyclerView.Adapter<FavoritosAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -58,6 +57,4 @@ class FavoritosAdapter(
         fun onClickAnime(anime: Anime)
         fun onClickRemoverFavorito(anime: Anime)
     }
-
-
 }

@@ -1,10 +1,9 @@
 package com.lorrane.animelist.util
 
-import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.lorrane.animelist.model.Anime
+import com.lorrane.animelist.domain.Anime
 import javax.inject.Inject
 
 class PreferenceManagerUtil @Inject constructor(val sharedPref: SharedPreferences) {

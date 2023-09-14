@@ -1,11 +1,11 @@
-package com.lorrane.animelist.ui.topAnime
+package com.lorrane.animelist.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.lorrane.animelist.api.AnimeRepository
-import com.lorrane.animelist.model.Anime
-import com.lorrane.animelist.model.Page
+import com.lorrane.animelist.data.repository.AnimeRepository
+import com.lorrane.animelist.domain.Anime
+import com.lorrane.animelist.domain.Page
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,8 +37,8 @@ class TopAnimeViewModel @Inject constructor(private val animeRepository: AnimeRe
         animeRepository.getTopAnimes(currentPage)
             .enqueue(object : Callback<Page<List<Anime>>> {
                 override fun onResponse(
-                    call: Call<Page<List<Anime>>>,
-                    response: Response<Page<List<Anime>>>
+                        call: Call<Page<List<Anime>>>,
+                        response: Response<Page<List<Anime>>>
                 ) {
                     response.body()?.let {
                         hasNextPage = it.pagination.hasNextPage

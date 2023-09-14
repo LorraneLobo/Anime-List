@@ -1,14 +1,11 @@
-package com.lorrane.animelist.ui.detalhesAnime
+package com.lorrane.animelist.presentation.viewmodel
 
-import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.lorrane.animelist.api.AnimeRepository
-import com.lorrane.animelist.api.Services
-import com.lorrane.animelist.model.Anime
-import com.lorrane.animelist.model.Page
+import com.lorrane.animelist.data.repository.AnimeRepository
+import com.lorrane.animelist.domain.Anime
+import com.lorrane.animelist.domain.Page
 import com.lorrane.animelist.util.PreferenceManagerUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -18,8 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetalhesAnimeViewModel @Inject constructor(
-    private val animeRepository: AnimeRepository,
-    private val preferenceManagerUtil: PreferenceManagerUtil
+        private val animeRepository: AnimeRepository,
+        private val preferenceManagerUtil: PreferenceManagerUtil
 ) : ViewModel() {
 
     private var _isFavorite: MutableLiveData<Boolean> = MutableLiveData(false)

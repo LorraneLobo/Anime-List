@@ -1,5 +1,6 @@
-package com.lorrane.animelist.api
+package com.lorrane.animelist.data.repository
 
+import com.lorrane.animelist.data.api.AnimeService
 import javax.inject.Inject
 
 class AnimeRepository @Inject constructor(val animeService: AnimeService) {

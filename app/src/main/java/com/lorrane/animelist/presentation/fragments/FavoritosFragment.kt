@@ -1,4 +1,4 @@
-package com.lorrane.animelist.ui.favoritos
+package com.lorrane.animelist.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lorrane.animelist.databinding.FragmentFavoritosBinding
-import com.lorrane.animelist.model.Anime
+import com.lorrane.animelist.domain.Anime
+import com.lorrane.animelist.presentation.adapters.FavoritosAdapter
+import com.lorrane.animelist.presentation.viewmodel.FavoritosViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

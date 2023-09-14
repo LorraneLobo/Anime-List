@@ -1,4 +1,4 @@
-package com.lorrane.animelist.model
+package com.lorrane.animelist.domain
 
 import com.google.gson.annotations.SerializedName
 

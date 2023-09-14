@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.lorrane.animelist.model.Genero
+import com.lorrane.animelist.domain.Genero
 
 @BindingAdapter("showView")
 fun showView(view: View, show: Boolean) {

@@ -1,4 +1,4 @@
-package com.lorrane.animelist
+package com.lorrane.animelist.presentation.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.lorrane.animelist.R
 import com.lorrane.animelist.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

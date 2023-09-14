@@ -1,4 +1,4 @@
-package com.lorrane.animelist.ui.topAnime
+package com.lorrane.animelist.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,16 +8,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lorrane.animelist.R
-import com.lorrane.animelist.model.Anime
+import com.lorrane.animelist.domain.Anime
 
 class TopAnimeAdapter(
-    var listaAnime: List<Anime> = listOf(),
-    val listener: OnClickListener
+        var listaAnime: List<Anime> = listOf(),
+        val listener: OnClickListener
 ) : RecyclerView.Adapter<TopAnimeAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemLista: View = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.adapter_top_anime, parent, false);
+            .inflate(R.layout.adapter_top_anime, parent, false)
         return MyViewHolder(itemLista)
     }
 

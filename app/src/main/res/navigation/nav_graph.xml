@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation.xml"
     app:startDestination="@id/topAnimeFragment">
 
     <fragment
         android:id="@+id/topAnimeFragment"
-        android:name="com.lorrane.animelist.ui.topAnime.TopAnimeFragment"
+        android:name="com.lorrane.animelist.presentation.fragments.TopAnimeFragment"
         android:label="Top Animes">
         <action
             android:id="@+id/action_topAnimeFragment_to_detalhesAnimeFragment"
@@ -15,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoritosFragment"
-        android:name="com.lorrane.animelist.ui.favoritos.FavoritosFragment"
+        android:name="com.lorrane.animelist.presentation.fragments.FavoritosFragment"
         android:label="Meus Favoritos" >
         <action
             android:id="@+id/action_favoritosFragment_to_detalhesAnimeFragment"
@@ -23,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/detalhesAnimeFragment"
-        android:name="com.lorrane.animelist.ui.detalhesAnime.DetalhesAnimeFragment"
+        android:name="com.lorrane.animelist.presentation.fragments.DetalhesAnimeFragment"
         android:label="   ">
         <argument
             android:name="animeId"

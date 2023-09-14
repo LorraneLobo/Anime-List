@@ -1,7 +1,7 @@
-package com.lorrane.animelist.api
+package com.lorrane.animelist.data.api
 
-import com.lorrane.animelist.model.Anime
-import com.lorrane.animelist.model.Page
+import com.lorrane.animelist.domain.Anime
+import com.lorrane.animelist.domain.Page
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

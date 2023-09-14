@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.lorrane.animelist.ui.topAnime.TopAnimeViewModel" />
+            type="com.lorrane.animelist.presentation.viewmodel.TopAnimeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

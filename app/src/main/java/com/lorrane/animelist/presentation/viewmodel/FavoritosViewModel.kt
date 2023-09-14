@@ -1,9 +1,9 @@
-package com.lorrane.animelist.ui.favoritos
+package com.lorrane.animelist.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.lorrane.animelist.model.Anime
+import com.lorrane.animelist.domain.Anime
 import com.lorrane.animelist.util.PreferenceManagerUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

@@ -1,11 +1,8 @@
-package com.lorrane.animelist.di
+package com.lorrane.animelist.data.di
 
 import android.content.Context
-import android.os.Vibrator
-import com.lorrane.animelist.MyApplication
-import com.lorrane.animelist.api.AnimeRepository
-import com.lorrane.animelist.api.AnimeService
-import com.lorrane.animelist.model.Anime
+import com.lorrane.animelist.data.repository.AnimeRepository
+import com.lorrane.animelist.data.api.AnimeService
 import com.lorrane.animelist.util.ARQUIVO_PREFERENCIA
 import com.lorrane.animelist.util.BASE_URL
 import dagger.Module
